@@ -29,10 +29,11 @@ def callback_ip(token):
     
     if 'errcode' in resp_data:
         print('Wechat return error!')
-        print(access_token.get('errcode'), access_token.get('errmsg'))
+        print(resp_data.get('errcode'), resp_data.get('errmsg'))
         return None
 
     return resp_data.get('ip_list')
+
 
 def api_domain_ip(token):
     try:
@@ -50,7 +51,7 @@ def api_domain_ip(token):
     
     if 'errcode' in resp_data:
         print('Wechat return error!')
-        print(access_token.get('errcode'), access_token.get('errmsg'))
+        print(resp_data.get('errcode'), resp_data.get('errmsg'))
         return None
 
     return resp_data.get('ip_list')
