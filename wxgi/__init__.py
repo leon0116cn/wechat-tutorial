@@ -8,6 +8,8 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(settings)
 
+    wechat_access_token = WechatAccessToken().get_access_token()
+
     @app.route('/')
     def hello():
         return 'hello world.'
@@ -27,7 +29,6 @@ def create_app():
 
     @app.route('/weixin_accesstoken')
     def weixin_accesstoken():
-        return WechatAccessToken().get_access_token()
-
+        return wechat_access_token
 
     return app
