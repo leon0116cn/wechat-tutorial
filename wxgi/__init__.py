@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from wxgi import settings
 from wxgi.utils import check_signature
 from wxgi.models import WechatAccessToken
@@ -17,9 +17,9 @@ def create_app():
     @app.route('/weixin_init')
     def weixin_init():
         echostr = request.args.get('echostr')
-        signature = params.get('signature')
-        timestamp = params.get('timestamp')
-        nonce = params.get('nonce')
+        signature = request.args.get('signature')
+        timestamp = request.args.get('timestamp')
+        nonce = request.args.get('nonce')
         token = settings.WECHAT_APP_TOKEN
 
         if not check_signature(token, timestamp, nonce, signature):
