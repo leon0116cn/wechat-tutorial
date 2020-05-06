@@ -18,7 +18,7 @@ class Test_Utils(unittest.TestCase):
         self.assertIsNotNone(ips)
     
     def test_create_menu(self):
-        self.assertTrue(create_menu(self.access_token, 'unittestcases/menu.json'))
+        self.assertTrue(create_menu(self.access_token, 'tests/menu.json'))
 
     def test_current_menu(self):
         menu = current_menu(self.access_token)
