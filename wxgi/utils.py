@@ -24,8 +24,10 @@ def callback_ip(token):
         resp_data = r.json()
     except requests.HTTPError as e:
         print('Wechat connection error!')
+        print(e)
     except ValueError as e:
         print('No json object return!')
+        print(e)
     
     if 'errcode' in resp_data:
         print('Wechat return error!')
@@ -46,8 +48,10 @@ def api_domain_ip(token):
         resp_data = r.json()
     except requests.HTTPError as e:
         print('Wechat connection error!')
+        print(e)
     except ValueError as e:
         print('No json object return!')
+        print(e)
     
     if 'errcode' in resp_data:
         print('Wechat return error!')
@@ -72,8 +76,10 @@ def create_menu(token, path):
         resp_data = r.json()
     except requests.HTTPError as e:
         print('Wechat connection error!')
+        print(e)
     except ValueError as e:
         print('No json object return!')
+        print(e)
 
     
     if resp_data.get('errcode') != 0:
@@ -95,8 +101,10 @@ def delete_menu(token):
         resp_data = r.json()
     except requests.HTTPError as e:
         print('Wechat connection error!')
+        print(e)
     except ValueError as e:
         print('No json object return!')
+        print(e)
     
     if resp_data.get('errcode') != 0:
         print(resp_data.get('errcode'))
@@ -117,8 +125,9 @@ def current_menu(token):
         resp_data = r.json()
     except requests.HTTPError as e:
         print('Wechat connection error!')
+        print(e)
     except ValueError as e:
         print('No json object return!')
+        print(e)
 
     return resp_data
-
