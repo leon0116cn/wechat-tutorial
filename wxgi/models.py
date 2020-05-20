@@ -131,16 +131,3 @@ class WechatAccessToken:
                 self._cache_access_token(access_token, expire_in)
         
         return access_token
-
-
-class WechatMessageEven(dict):
-    def __init__(self, message):
-        self.msg = {}
-        
-        xml_msg = ET.fromstring(message)
-        for ele in xml_msg:
-            self.msg[ele.tag] = ele.text
-        
-        self.update(self.msg)
-   
-        
