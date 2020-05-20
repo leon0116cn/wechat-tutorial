@@ -1,7 +1,9 @@
 import hashlib
 import json
+import xml.etree.ElementTree as ET
 import requests
 from wxgi import settings
+from wxgi import models
 
 
 def check_signature(token, timestamp, nonce, signature):
@@ -9,8 +11,24 @@ def check_signature(token, timestamp, nonce, signature):
     sorted_str = ''.join(sorted_list)
 
     sha1 = hashlib.sha1(sorted_str.encode('utf-8'))
+    hashcode = sha1.hexdigest()
+
+    print('handle/GET fun: hashcode, signature: ', hashcode, signature)
     
-    return sha1.hexdigest() == signature
+    return hashcode == signature
+
+
+def parse_xml(web_data):
+    if len(web_data) == 0:
+        return None
+    
+    xml_data = ET.fromstring(web_data)
+    msg_type = xml_data.find('MsgType').text
+
+    if msg_type == 'text':
+        return models.TextWechatMsg(xml_data)
+    elif msg_type == 'image':
+        return models.ImageWechatMsg(xml_data)
 
 
 def callback_ip(token):
