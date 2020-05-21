@@ -9,6 +9,7 @@ WECHAT_ACCESSTOKEN_PAYLOAD = {
     'appid': WECHAT_APP_ID,
     'secret': WECHAT_APP_SECRET
 }
+WECHAT_MENU_PATH = os.environ.get('WECHAT_MENU_PATH')
 
 
 REDIS_HOST = os.environ.get('REDIS_HOST')

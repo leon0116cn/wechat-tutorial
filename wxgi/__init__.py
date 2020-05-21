@@ -53,7 +53,7 @@ def create_app():
                 print('暂不处理...')
                 return models.ReplyMsg().reply()
 
-    @app.route('/token')
+    @app.route('/wx/token')
     def access_token():
         access_token = models.WechatAccessToken()
         return access_token.get_access_token()
