@@ -1,22 +1,26 @@
 {
-    "button":[
-    {	
-         "type":"click",
-         "name":"今日歌曲",
-         "key":"V1001_TODAY_MUSIC"
-     },
-     {
-          "name":"菜单",
-          "sub_button":[
-          {	
-              "type":"view",
-              "name":"搜索",
-              "url":"http://www.soso.com/"
-           },
-           {
-              "type":"click",
-              "name":"赞一下我们",
-              "key":"V1001_GOOD"
-           }]
-      }]
+    "button":
+    [
+        {
+            "type": "click",
+            "name": "click",
+            "key":  "mpGuide"
+        },
+        {
+            "name": "公众平台",
+            "sub_button":
+            [
+                {
+                    "type": "view",
+                    "name": "百度",
+                    "url": "https://www.baidu.com"
+                },
+                {
+                    "type": "location_select",
+                    "name": "上报位置",
+                    "key": "myLocation"
+                }
+            ]
+        }
+      ]
 }
