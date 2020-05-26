@@ -78,5 +78,5 @@ def handle():
 
 @app.route('/wx/token')
 def access_token():
-    access_token = basic.WechatAccessToken()
+    access_token = WechatAccessToken()
     return access_token.get_access_token()
