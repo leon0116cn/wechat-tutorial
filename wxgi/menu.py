@@ -1,6 +1,6 @@
 import requests
 from wxgi import settings
-from wxgi.models import WechatAccessToken
+from wxgi.basic import WechatAccessToken
 
 
 class WechatMenu:
